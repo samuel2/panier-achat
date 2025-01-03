@@ -1,0 +1,12 @@
+<div class="card shadow" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    @for (item of cartItems; track item.id) {
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-10">{{item.nom}} - {{item.prix}}$</div>
+                <div class="col-2"><button class="btn btn-sm btn-outline-danger" (click)="removeItem($index)">-</button></div>
+            </div>
+        </li>
+    }
+  </ul>
+</div>

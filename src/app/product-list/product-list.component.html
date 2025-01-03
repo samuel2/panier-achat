@@ -1,0 +1,30 @@
+<div class="row shadow p-3">
+    <div class="col-md-9">
+        <h2 class="pb-2">Liste des Produits</h2>
+        <table class="table table-striped border table-hover">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prix</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (product of products; track product.id) {
+                    <tr>
+                        <td>{{product.id}}</td>
+                        <td>{{product.nom}}</td>
+                        <td>{{product.prix}} $</td>
+                        <td><button class="btn btn-sm btn-outline-success" (click)="addToCart(product)">+ Ajouter</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3">
+        <h2 class="pb-2">Mon Panier</h2>
+        <app-cart [cartItems]="cartItems" (remove)="removeFromCart($event)">
+        </app-cart>
+    </div>
+</div>
